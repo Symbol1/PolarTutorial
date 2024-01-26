@@ -36,6 +36,7 @@
     \setmonofont{NotoSans-Light}
     \setemojifont{Apple Color Emoji}
 	\setmathfont{texgyrepagella-math.otf}
+    \def\TV{\emoji{tv}}
     \def\IC{\emoji{ice}}
     \def\GN{\emoji{genie}}
     \def\SH{\emoji{shrug}}
@@ -112,8 +113,6 @@
 \begin{document}
 
 \centering
-
-\if00
 
 \begin{frame}
     \fontsize{24pt}{0}\selectfont
@@ -1597,8 +1596,6 @@
     \end{tikzpicture}
 \end{frame}
 
-\def\TV{\emoji{tv}}
-
 \begin{frame}
     \begin{tikzpicture} [overlay]
         \fontsize{20pt}{0}\selectfont
@@ -1824,19 +1821,19 @@
             }
         ;
         \draw <4> [teal, line width=4pt, fill=white, opacity=0.9,
-            rounded corners=12pt]
-            (0.5, 9) rectangle node [align=center] {
+            rounded corners=24pt]
+            (0.5, 8) rectangle node [align=center] {
                 These channels,
                 \\ most of them
-                \\ (Chernoff)
+                \\ (Hoeffding)
                 \\ undergo $z \mapsto z^2$
                 \\ $n/5$ times
             } (3.5, 1)
             (3, 1) edge [->, out=-90, in=180] (4, 0.5) 
         ;
         \draw <5-> [teal, line width=4pt, fill=white, opacity=0.9,
-            rounded corners=12pt]
-            (0.5, 9) rectangle node [align=center] {
+            rounded corners=24pt]
+            (0.5, 8) rectangle node [align=center] {
                 Squaring
                 \\ $n/5$ times
                 \\ make $z$
@@ -1847,8 +1844,6 @@
         ;
     \end{tikzpicture}
 \end{frame}
-
-\fi
 
 \begin{frame}
     \fontsize{36pt}{48pt}\selectfont
@@ -1887,7 +1882,7 @@
         };
         \draw <6-> (-2, -2) node [align=center] {
             \includegraphics[width=4cm]{hammer.png}
-            \\ Chernoff $p$
+            \\ Hoeffding $p$
         };
         \draw <7-> (2, -2) node [align=center] {
             \includegraphics[width=4cm]{nail.png}
@@ -1944,6 +1939,206 @@
             (3.5, -1.5) node [right] {PAC \& list decoding}
         ;
     \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+    \begin{tikzpicture} [overlay, yshift=0.3cm]
+        \fontsize{12pt}{16pt}\selectfont
+        \draw (0, 0) node {
+            \includegraphics[height=9cm]{hands.jpg}%
+            \llap{\fontsize{6pt}{0}\selectfont\color{gray}ChatGPT}%
+        };
+        \draw
+            (-1.5, -2.5) node [align=center] {
+                \KTV[white][gray]{successive}
+                \\ \KTV[white][gray]{cancellation}
+            }
+            (1.5, -2.5) node [align=center] {
+                \KTV[white][gray]{channel}
+                \\ \KTV[white][gray]{polarization}
+            }
+            (-1.5, -0.5) node [align=center] {
+                \KTV[white][black]{better gap}
+                \\ \KTV[white][black]{to capacity}
+            }
+            (1.5, -0.5) node [align=center] {
+                \KTV[white][black]{better}
+                \\ \KTV[white][black]{error prob}
+            }
+            (-1, 3.7) node [left] {large matrix/RS/AG}
+            (1, 3.7) node [right] {BMS/large alphabet}
+            (-3, 2) node [left] {MAC/broadcast/wiretap}
+            (3, 2) node [right] {lossy/distribut compress}
+            (-4, 0.3) node [left] {classical--quantum}
+            (4, 0.3) node [right] {insdel channel}
+            (-3.5, -1.5) node [left] {coded computation}
+            (3.5, -1.5) node [right] {PAC \& list decoding}
+        ;
+        \fill [gray!50!white, opacity=0.7, even odd rule]
+            (0, 0) circle (10) (-1.5, -0.5) circle (2)
+        ;
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+    \begin{tikzpicture} [overlay]
+        \fontsize{20pt}{0}\selectfont
+        \draw [opacity=0.3]
+            (0, 0) node {\includegraphics[width=16cm]{bliss.jpg}}
+        ;
+        \draw
+            (0, 3) node{
+                Hill shape
+                $h(z) \coloneqq \bigl(z (1 - z)\bigr)^{0.663}$
+                % $h(z) \coloneqq \bigl(z (1 - z)\bigr)^{0.72427}$
+                is not optimal
+            }
+            (0, 0) node [align=center] {
+                $\displaystyle \sup_{0<z<1}
+                \frac{h(z^2) + h(2z - z^2)}{2h(z)}
+                < 0.832$
+            }
+            (0, -3) node [align=center] {
+                \focus<2->{
+                    Use power method
+                    $\displaystyle h_{i+1}(z) \coloneqq
+                    \frac{h_i(z^2) + h_i(2z - z^2)}{\text{normalize}}$
+                }
+            }
+        ;
+        \draw <3-> (5, 0) node {
+            \includegraphics[height=3cm]{nail_text.png}
+        };
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+    \begin{tikzpicture} [overlay, yshift=0.3cm]
+        \fontsize{12pt}{16pt}\selectfont
+        \draw (0, 0) node {
+            \includegraphics[height=9cm]{hands.jpg}%
+            \llap{\fontsize{6pt}{0}\selectfont\color{gray}ChatGPT}%
+        };
+        \draw
+            (-1.5, -2.5) node [align=center] {
+                \KTV[white][gray]{successive}
+                \\ \KTV[white][gray]{cancellation}
+            }
+            (1.5, -2.5) node [align=center] {
+                \KTV[white][gray]{channel}
+                \\ \KTV[white][gray]{polarization}
+            }
+            (-1.5, -0.5) node [align=center] {
+                \KTV[white][black]{better gap}
+                \\ \KTV[white][black]{to capacity}
+            }
+            (1.5, -0.5) node [align=center] {
+                \KTV[white][black]{better}
+                \\ \KTV[white][black]{error prob}
+            }
+            (-1, 3.7) node [left] {large matrix/RS/AG}
+            (1, 3.7) node [right] {BMS/large alphabet}
+            (-3, 2) node [left] {MAC/broadcast/wiretap}
+            (3, 2) node [right] {lossy/distribut compress}
+            (-4, 0.3) node [left] {classical--quantum}
+            (4, 0.3) node [right] {insdel channel}
+            (-3.5, -1.5) node [left] {coded computation}
+            (3.5, -1.5) node [right] {PAC \& list decoding}
+        ;
+        \fill [gray!50!white, opacity=0.7, even odd rule]
+            (0, 0) circle (10) (1.5, -0.5) circle (2)
+        ;
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+    \begin{tikzpicture} [overlay]
+        \fontsize{20pt}{25pt}\selectfont
+        \tikzset{xshift=-7.5cm, yshift=-4cm, yscale=0.8, xscale=1.8}
+        \beciter{4}{0}{8}
+        \draw [->] (0, 0) -- (0, 10) node [right] {$z$};
+        \draw [->] (0, 0) -- (8.5, 0) node [above] {$n$};
+        \draw [red, line width=4pt, fill=white, opacity=0.9]
+            (4, 9) rectangle (10, 1)
+            (4, 5) node [right, align=center] {Level \\ $n/2$}
+        ;
+        \draw [red]
+            (6, 9) node [below] {\strut{$z = 1 - 2^{-\Omega(n/2)}$}}
+            (6, 1) node [above] {\strut{$z = 2^{-\Omega(n/2)}$}}
+            (7, 5) node [align=center] {
+                \strut{$2^{-\Omega(n/2)}$ fraction}
+                \\ \strut{of channels}
+                \\ \strut{have been here}
+            }
+        ;
+        \draw [teal, line width=4pt, fill=white, opacity=0.9,
+            rounded corners=24pt]
+            (0.5, 8) rectangle node [align=center] {
+                These channels,
+                \\ most of them
+                \\ (Hoeffding)
+                \\ undergo $z \mapsto z^2$
+                \\ $n/5$ times
+            } (3.5, 1)
+            (3, 1) edge [->, out=-90, in=180] (4, 0.5) 
+        ;
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+    \begin{tikzpicture} [overlay]
+        \fontsize{20pt}{25pt}\selectfont
+        \tikzset{xshift=-7.5cm, yshift=-4cm, yscale=0.8, xscale=1.8}
+        \beciter{4}{0}{8}
+        \draw [->] (0, 0) -- (0, 10) node [right] {$z$};
+        \draw [->] (0, 0) -- (8.5, 0) node [above] {$n$};
+        \draw [red, line width=4pt, fill=white, opacity=0.9]
+            (3, 9) rectangle (10, 1)
+            (3, 5) node [right, align=center] {Level \\ $n/3$}
+        ;
+        \draw [red]
+            (6, 9) node [below] {\focus<2->{$z = 1 - 2^{-\Omega(n/3)}$}}
+            (6, 1) node [above] {\focus<2->{$z = 2^{-\Omega(n/3)}$}}
+            (7, 5) node [align=center] {
+                \focus<3->{$2^{-\Omega(n/3)}$ fraction}
+                \\ \focus<3->{of channels}
+                \\ \focus<3->{have been here}
+            }
+        ;
+        \draw <4-> [teal, line width=4pt, fill=white, opacity=0.9,
+            rounded corners=24pt]
+            (0.5, 8) rectangle node [align=center] {
+                These channels,
+                \\ most of them
+                \\ (Hoeffding)
+                \\ undergo $z \mapsto z^2$
+                \\ $(1/3 - \varepsilon) n$ times
+            } (3.5, 1)
+            (3, 1) edge [->, out=-90, in=180] (4, 0.5) 
+        ;
+    \end{tikzpicture}
+\end{frame}
+
+\begin{frame}
+    \fontsize{36pt}{48pt}\selectfont
+    If $k$ of $2^n$ are less than $p$,
+    polar code has rate $k/2^n$
+    \\ \& block error prob $< kp$.
+
+    $k/2^n = 60\% - 2^{-n/3.627}$
+    \\
+    $p = 2^{-2^{\Omega(n)}}$
+\end{frame}
+
+\begin{frame}
+    \fontsize{36pt}{48pt}\selectfont
+    If $k$ of $2^n$ are less than $p$,
+    polar code has rate $k/2^n$
+    \\ \& block error prob $< kp$.
+
+    $k/2^n = 60\% - 2^{-\delta n}$
+    \\
+    $p = 2^{-2^{(1/2-\varepsilon)n}}$
 \end{frame}
 
 \begin{frame}
@@ -2307,9 +2502,9 @@
     \end{tikzpicture}
 \end{frame}
 
-\begin{frame}
-    Insert AI picture; large kernel vs large alphabet  
-\end{frame}
+% \begin{frame}
+%     Insert AI picture; large kernel vs large alphabet  
+% \end{frame}
 
 \begin{frame}
     \begin{tikzpicture} [overlay, yshift=0.3cm]
@@ -2667,6 +2862,18 @@
 
 \begin{frame}
     dummy
+\end{frame}
+
+\begin{frame}
+    \fontsize{32pt}{0}\selectfont
+    
+    Encoding and decoding complexity
+    
+    \pause
+    \vfill
+    
+    \fontsize{28pt}{0}\selectfont
+    is usually $O(N\log N)$ but...
 \end{frame}
 
 \begin{frame}
